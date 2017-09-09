@@ -25,13 +25,13 @@ namespace WSAutomation
             process = Process.Start(startInfo);
 
             process.StandardInput
-                .WriteLine(@"D:\sdk-tools-windows\platform-tools\adb.exe kill-server");
+                .WriteLine(@"adb kill-server");
             Thread.Sleep(3000);
             process.StandardInput
-                .WriteLine(@"D:\sdk-tools-windows\platform-tools\adb.exe start-server");
+                .WriteLine(@"adb start-server");
             Thread.Sleep(3000);
             process.StandardInput
-                .WriteLine(@"D:\sdk-tools-windows\platform-tools\adb.exe devices");
+                .WriteLine(@"adb devices");
 
             //process.StandardInput
             //   .WriteLine(@"D:\sdk-tools-windows\platform-tools\adb.exe");
@@ -40,6 +40,7 @@ namespace WSAutomation
 
         public void startApp()
         {
+            Thread.Sleep(1500);
             //select from library
             process.StandardInput
                .WriteLine(@"adb shell input tap 420 1150");
